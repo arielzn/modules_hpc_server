@@ -1,0 +1,39 @@
+#%Module1.0#####################################################################
+##
+## intel compilers modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tIntel Composer XE 2016 update 3"
+}
+
+conflict compilers/gcc
+conflict compilers/intel/2013sp1
+conflict compilers/intel/2015u1
+module load licenses/intel
+
+module-whatis   "Intel Composer XE 2016 update 3 (icc, icpc, ifort)"
+
+# for Tcl script use only
+set     version         2016_update3
+set     prefix          /opt/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016.3.210/linux
+
+prepend-path    PATH            ${prefix}/bin/intel64
+prepend-path    LIBRARY_PATH    ${prefix}/compiler/lib/intel64
+prepend-path    LD_LIBRARY_PATH ${prefix}/compiler/lib/intel64
+prepend-path    NLSPATH         ${prefix}/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path    MANPATH         ${prefix}/man/en_US
+
+prepend-path    MIC_LIBRARY_PATH        ${prefix}/compiler/lib/mic
+prepend-path    MIC_LD_LIBRARY_PATH     ${prefix}/compiler/lib/mic
+
+
+setenv CC       icc
+setenv CXX      icpc
+setenv F77      ifort
+setenv FC       ifort
+setenv F90      ifort
+

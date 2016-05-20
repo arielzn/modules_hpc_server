@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## gcc modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+	global version prefix
+
+	puts stderr "\tGCC 4.8.4"
+}
+
+conflict compilers/intel
+module load libs/gcc/4.8.4
+
+module-whatis	"GCC (GNU Compiler Collection) 4.8.4 (gcc, g++, gfortran)"
+
+# for Tcl script use only
+set	version		4.8.4
+set	prefix		/opt/packages/gcc/${version}
+
+prepend-path	PATH		${prefix}/bin
+prepend-path	MANPATH		${prefix}/share/man
+
+setenv CC	gcc
+#setenv CFLAGS	"-O3 -march=native -mtune=native -flto"
+setenv CXX	g++
+#setenv CXXFLAGS	"-O3 -march=native -mtune=native -flto"
+setenv F77	gfortran
+#setenv F77FLAGS	"-O3 -march=native -mtune=native -flto"
+#setenv FFLAGS	"-O3 -march=native -mtune=native -flto"
+setenv FC	gfortran
+#setenv FCFLAGS	"-O3 -march=native -mtune=native -flto"
+setenv F90	gfortran
+#setenv F90FLAGS	"-O3 -march=native -mtune=native -flto"

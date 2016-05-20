@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## intel compilers modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tIntel Composer XE 2013 SP1"
+}
+
+conflict compilers/gcc
+conflict compilers/intel/2015u1
+module load licenses/intel
+
+module-whatis   "Intel Composer XE 2013 SP1 (icc, icpc, ifort)"
+
+# for Tcl script use only
+set     version         2013_SP1
+set     prefix          /opt/intel/composer_xe_2013_sp1.0.080
+
+prepend-path    PATH            ${prefix}/bin/intel64
+prepend-path    LIBRARY_PATH    ${prefix}/compiler/lib/intel64
+prepend-path    LD_LIBRARY_PATH ${prefix}/compiler/lib/intel64
+prepend-path    NLSPATH         ${prefix}/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path    MANPATH         ${prefix}/man/en_US
+
+setenv CC       icc
+setenv CXX      icpc
+setenv F77      ifort
+setenv FC       ifort
+setenv F90      ifort
+

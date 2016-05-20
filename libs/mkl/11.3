@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## mkl libraries modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tIntel Math Kernel Library"
+}
+
+module load licenses/intel
+
+module-whatis   "Intel Math Kernel Library 11.3 (BLAS, LAPACK and scaLAPACK for CPU)"
+
+# for Tcl script use only
+set     version         11.3
+set     prefix          /opt/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016.3.210/linux/mkl
+
+setenv MKLROOT  ${prefix}
+prepend-path    INCLUDE         ${prefix}/include
+prepend-path    CPATH           ${prefix}/include
+prepend-path    LIBRARY_PATH    ${prefix}/lib/intel64
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib/intel64
+prepend-path    NLSPATH         ${prefix}/lib/intel64/locale/%l_%t/%N
+

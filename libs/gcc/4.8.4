@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## gcc libs modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+	global version prefix
+
+	puts stderr "\tGCC 4.8.4 libs"
+}
+
+module-whatis	"GCC 4.8.4 libs (libgcc, libgfortran, libstdc++...)"
+
+# for Tcl script use only
+set	version		4.8.4
+set	prefix		/opt/packages/gcc/${version}
+
+#prepend-path	LIBRARY_PATH	${prefix}/lib32
+prepend-path	LIBRARY_PATH	${prefix}/lib64
+#prepend-path	LD_LIBRARY_PATH	${prefix}/lib32
+prepend-path	LD_LIBRARY_PATH	${prefix}/lib64
+#prepend-path	LD_RUN_PATH	${prefix}/lib32
+prepend-path	LD_RUN_PATH	${prefix}/lib64
+prepend-path	PKG_CONFIG_PATH	${prefix}/lib/pkgconfig

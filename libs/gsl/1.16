@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## gsl libraries modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tGSL 1.16" 
+}
+
+module-whatis   "GSL 1.16" 
+
+# for Tcl script use only
+set     version         1.16
+set     prefix          /opt/packages/gsl/1.16
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    INCLUDE         ${prefix}/include
+prepend-path    CPATH           ${prefix}/include
+prepend-path    LIBRARY_PATH    ${prefix}/lib
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    MANPATH         ${prefix}/share/man/
+prepend-path    PKG_CONFIG_PATH ${prefix}/lib/pkgconfig      

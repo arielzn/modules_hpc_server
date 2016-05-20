@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## cuda modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tCUDA 6.5"
+}
+
+module-whatis   "NVIDIA CUDA Toolkit 6.5 (nvcc, CUDA support, OpenCL support)"
+
+# for Tcl script use only
+set     version         6.5
+set     prefix          /opt/cuda/6.5
+
+# Pinned memory that works with RDMA
+setenv CUDA_NIC_INTEROP 1
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    CPATH           ${prefix}/include
+prepend-path    MANPATH         ${prefix}/doc/man
+prepend-path    LIBRARY_PATH    ${prefix}/lib
+prepend-path    LIBRARY_PATH    ${prefix}/lib64
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib64

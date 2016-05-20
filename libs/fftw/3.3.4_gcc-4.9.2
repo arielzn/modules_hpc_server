@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## mvapich modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tFFTW 3.3.4"
+}
+
+module-whatis   "FFTW 3.3.4"
+
+# for Tcl script use only
+set     version         3.3.4
+set     prefix          /opt/packages/fftw/3.3.4_gcc-4.9.2
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    INCLUDE         ${prefix}/include
+prepend-path    CPATH           ${prefix}/include
+prepend-path    LIBRARY_PATH    ${prefix}/lib
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    MANPATH         ${prefix}/share/man/
+prepend-path    PKG_CONFIG_PATH ${prefix}/lib/pkgconfig
+

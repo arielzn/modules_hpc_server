@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+##
+## openmpi modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+	global version prefix
+
+	puts stderr "\tOpenMPI 1.8.4 with GCC 4.8.4"
+}
+
+module load compilers/gcc/4.8.4
+
+module-whatis	"OpenMPI 1.8.4 for GCC 4.8.4"
+
+# for Tcl script use only
+set	version		1.8.4_gcc-4.8.4
+set	prefix		/opt/packages/openmpi/${version}
+
+
+prepend-path	PATH		${prefix}/bin
+prepend-path	CPATH		${prefix}/include
+prepend-path	LIBRARY_PATH	${prefix}/lib
+prepend-path	LD_LIBRARY_PATH	${prefix}/lib
+prepend-path	MANPATH		${prefix}/share/man
+prepend-path	PKG_CONFIG_PATH	${prefix}/lib/pkgconfig
+
+setenv	MPICC	${prefix}/bin/mpicc
+setenv	MPICXX	${prefix}/bin/mpicxx
+setenv	MPIF77	${prefix}/bin/mpif77
+setenv	MPIF90	${prefix}/bin/mpif90
+setenv  MPI_HOME  ${prefix}
+
+# Use PMI2 process management
+#setenv SLURM_MPI_TYPE pmi2
+

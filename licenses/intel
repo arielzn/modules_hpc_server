@@ -1,0 +1,13 @@
+#%Module1.0#####################################################################
+##
+## mvapich modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        puts stderr "\tIntel license paths"
+}
+
+module-whatis   "Licenses for Intel products"
+
+setenv INTEL_LICENSE_FILE       /opt/intel/composerxe/licenses:/opt/intel/licenses

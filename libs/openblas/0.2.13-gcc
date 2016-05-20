@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## mvapich modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tOpenBLAS 0.2.13"
+}
+
+module-whatis   "OpenBLAS 0.2.13 (BLAS y LAPACK para CPU)"
+
+module load libs/gcc/4.8.4
+
+# for Tcl script use only
+set     version         0.2.13
+set     prefix          /opt/packages/openblas/0.2.13-gcc
+
+setenv  OPENBLAS_MAIN_FREE      1
+
+prepend-path    INCLUDE         ${prefix}/include
+prepend-path    CPATH           ${prefix}/include
+prepend-path    LIBRARY_PATH    ${prefix}/lib
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
