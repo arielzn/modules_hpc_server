@@ -1,0 +1,17 @@
+--- /usr/local/etc/slurm/slurmdbd.conf.example	
++++ /usr/local/etc/slurm/slurmdbd.conf	
+@@ -13,7 +13,7 @@
+ #
+ # Authentication info
+ AuthType=auth/munge
+-#AuthInfo=/var/run/munge/munge.socket.2
++AuthInfo=/var/run/munge/munge.socket.2
+ #
+ # slurmDBD info
+ DbdAddr=localhost
+@@ -35,5 +35,5 @@
+ #StoragePort=1234
+ StoragePass=password
+ StorageUser=slurm
+-#StorageLoc=slurm_acct_db
++StorageLoc=slurm_acct_db
