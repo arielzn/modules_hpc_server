@@ -1,0 +1,44 @@
+#%Module1.0#####################################################################
+##
+## mvapich2 modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tMVAPICH2 2.2 with Intel 2015 update 1"
+}
+
+module load compilers/intel/2015u1
+
+conflict openmpi
+conflict compilers/gcc
+
+module-whatis   "MVAPICH2 2.2 with Intel compilers"
+
+# for Tcl script use only
+set     version         2.2_intel2015u1
+set     prefix          /opt/packages/mvapich2/${version}
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    CPATH           ${prefix}/include
+prepend-path    LIBRARY_PATH    ${prefix}/lib
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    MANPATH         ${prefix}/share/man
+prepend-path    PKG_CONFIG_PATH ${prefix}/lib/pkgconfig
+
+setenv  MPICC   ${prefix}/bin/mpicc
+setenv  MPICXX  ${prefix}/bin/mpicxx
+setenv  MPIF77  ${prefix}/bin/mpif77
+setenv  MPIF90  ${prefix}/bin/mpif90
+
+# enable gpudirect
+# setenv MV2_USE_CUDA 1
+
+# workaround
+#setenv MV2_ENABLE_AFFINITY 0
+
+# Use PMI2 to launch
+#setenv SLURM_MPI_TYPE pmi2
+
