@@ -7,7 +7,7 @@
 -ControlMachine=linux0
 -#ControlAddr=
 +#ClusterName=linux
-+ControlMachine=srvulx13
++ControlMachine=hostname
 +ControlAddr=127.0.0.1
  #BackupController=
  #BackupAddr=
@@ -64,4 +64,4 @@
 -PartitionName=debug Nodes=linux[1-32] Default=YES MaxTime=INFINITE State=UP
 +GresTypes=gpu
 +NodeName=localhost RealMemory=48000 Sockets=2 CoresPerSocket=12 ThreadsPerCore=1 Gres=gpu:2 State=UNKNOWN
-+PartitionName=mainqueue Nodes=localhost Default=YES MaxTime=INFINITE State=UP
++PartitionName=main Nodes=localhost Default=YES MaxTime=INFINITE State=UP
